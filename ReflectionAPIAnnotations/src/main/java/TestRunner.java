@@ -35,7 +35,7 @@ public class TestRunner {
         }
 
         if (beforeSuiteMethod != null) {
-            beforeSuiteMethod.invoke(testClass.getDeclaredConstructor(int.class, int.class).newInstance(num1, num2));
+            beforeSuiteMethod.invoke(testClass.getDeclaredConstructor().newInstance());
         }
 
         Map<Integer, Method> sortTests = new TreeMap<>(testsMap);
@@ -44,7 +44,7 @@ public class TestRunner {
         }
 
         if (afterSuiteMethod != null) {
-            afterSuiteMethod.invoke(testClass.getDeclaredConstructor(int.class, int.class).newInstance(num1, num2));
+            afterSuiteMethod.invoke(testClass.getDeclaredConstructor().newInstance());
         }
     }
 }
