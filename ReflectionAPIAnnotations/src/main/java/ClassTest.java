@@ -1,14 +1,8 @@
+import annotations.AfterSuite;
+import annotations.BeforeSuite;
+import annotations.Test;
+
 public class ClassTest {
-    private int num1;
-    private int num2;
-
-    public ClassTest() {
-    }
-
-    public ClassTest(int num1, int num2) {
-        this.num1 = num1;
-        this.num2 = num2;
-    }
 
     @BeforeSuite
     public void start() {
@@ -37,8 +31,13 @@ public class ClassTest {
 
     @Test
     public void test5() {
-        System.out.println("Метод: test5 с приоритетом default=10, аннотация: Test, решение: " +
-                num1 + " + " + num2 + " = " + (num1 + num2));
+        System.out.println("Метод: test5 с приоритетом default=10, аннотация: Test.");
+    }
+
+    @Test(order = 6)
+    public void test6() {
+        System.out.println("Метод: test6 , аннотация: Test");
+        throw new RuntimeException("Ошибка в данном тесте.");
     }
 
     @AfterSuite
