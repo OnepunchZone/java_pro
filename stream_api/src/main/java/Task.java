@@ -1,7 +1,7 @@
 public class Task {
     private int taskId;
     private String taskName;
-    private String taskStatus;
+    private Status taskStatus;
 
     public Task(Builder builder) {
         this.taskId = builder.id;
@@ -17,7 +17,7 @@ public class Task {
         return taskName;
     }
 
-    public String getTaskStatus() {
+    public Status getTaskStatus() {
         return taskStatus;
     }
 
@@ -28,7 +28,7 @@ public class Task {
     public static class Builder {
         private int id;
         private String name;
-        private String status;
+        private Status status;
 
         public Builder id(int id) {
             this.id = id;
@@ -40,7 +40,7 @@ public class Task {
             return this;
         }
 
-        public Builder status(String status) {
+        public Builder status(Status status) {
             this.status = status;
             return this;
         }
@@ -55,7 +55,7 @@ public class Task {
         return "Task{" +
                 "taskId=" + taskId +
                 ", taskName='" + taskName + '\'' +
-                ", taskStatus='" + taskStatus + '\'' +
+                ", taskStatus='" + taskStatus.getVal() + '\'' +
                 '}';
     }
 }
