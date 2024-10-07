@@ -1,3 +1,4 @@
 rootProject.name = 'JavaPro'
 include 'ReflectionAPIAnnotations'
+include 'stream_api'
 

@@ -12,8 +12,6 @@ public class TestRunner {
         boolean testFlag = false;
         int correctTests = 0;
         int countTests = 0;
-        int num1 = 3;
-        int num2 = 7;
         Method beforeSuiteMethod = null;
         Method afterSuiteMethod = null;
         Map<Integer, Method> testsMap = new HashMap<>();
