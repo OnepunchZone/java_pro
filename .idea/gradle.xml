@@ -9,6 +9,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/ReflectionAPIAnnotations" />
+            <option value="$PROJECT_DIR$/my_threadpool" />
           </set>
         </option>
       </GradleProjectSettings>
