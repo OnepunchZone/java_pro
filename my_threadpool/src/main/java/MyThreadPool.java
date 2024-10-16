@@ -30,12 +30,16 @@ public class MyThreadPool {
                 Runnable task;
                 synchronized (queue) {
                     while (queue.isEmpty() && !isShutdown) {
+
                         try {
+                            System.out.println(Thread.currentThread().getName() + " не получил задачу.");
                             queue.wait();
+                            System.out.println(Thread.currentThread().getName() + " проснулся.");
                         } catch (InterruptedException e) {
                             Thread.currentThread().interrupt();
                             return;
                         }
+
                     }
 
                     if (isShutdown && queue.isEmpty()) {
@@ -63,7 +67,7 @@ public class MyThreadPool {
         synchronized (queue) {
             queue.add(r);
             System.out.println("Пришла новая задача.");
-            queue.notifyAll();
+            queue.notify();
         }
     }
 

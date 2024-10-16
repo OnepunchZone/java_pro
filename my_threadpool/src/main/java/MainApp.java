@@ -2,7 +2,7 @@ public class MainApp {
     public static void main(String[] args) {
         MyThreadPool myThreadPool = new MyThreadPool(5);
 
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 1000; i++) {
             int taskId = i;
             myThreadPool.execute(() -> {
                 System.out.println("Задача №" + taskId + " запущена в потоке " + Thread.currentThread().getName());
