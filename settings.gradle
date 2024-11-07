@@ -1,4 +1,6 @@
 rootProject.name = 'JavaPro'
 include 'ReflectionAPIAnnotations'
 include 'stream_api'
+include 'my_threadpool'
+include 'pattern_iterator'
 
