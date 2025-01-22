@@ -13,6 +13,9 @@
             <option value="$PROJECT_DIR$/stream_api" />
             <option value="$PROJECT_DIR$/my_threadpool" />
             <option value="$PROJECT_DIR$/pattern_iterator" />
+            <option value="$PROJECT_DIR$/singleton_jdbc" />
+            <option value="$PROJECT_DIR$/spring-app" />
+            <option value="$PROJECT_DIR$/spring_context" />
           </set>
         </option>
       </GradleProjectSettings>
