@@ -4,4 +4,5 @@ include 'my_threadpool'
 include 'pattern_iterator'
 include 'singleton_jdbc'
 include 'spring_context'
+include 'spring-app'
 
