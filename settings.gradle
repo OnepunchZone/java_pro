@@ -7,4 +7,5 @@ include 'singleton_jdbc'
 include 'spring_context'
 include 'spring-app'
 include 'Hibernate'
+include 'hibernate_jpql'
 
