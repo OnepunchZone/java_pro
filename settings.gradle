@@ -8,4 +8,5 @@ include 'spring_context'
 include 'spring-app'
 include 'Hibernate'
 include 'hibernate_jpql'
+include 'spring-data-jdbc'
 
