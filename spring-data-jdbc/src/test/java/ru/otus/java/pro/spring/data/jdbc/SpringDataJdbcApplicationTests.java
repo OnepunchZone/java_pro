@@ -1,4 +1,4 @@
-package ru.otus.java.pro.spring.data.jdbc.spring_data_jdbc;
+package ru.otus.java.pro.spring.data.jdbc;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
