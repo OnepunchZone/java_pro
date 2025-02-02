@@ -16,6 +16,7 @@
             <option value="$PROJECT_DIR$/pattern_iterator" />
             <option value="$PROJECT_DIR$/singleton_jdbc" />
             <option value="$PROJECT_DIR$/spring-app" />
+            <option value="$PROJECT_DIR$/spring-app-rest" />
             <option value="$PROJECT_DIR$/spring-data-jdbc" />
             <option value="$PROJECT_DIR$/spring_context" />
             <option value="$PROJECT_DIR$/stream_api" />

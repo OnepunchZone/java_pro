@@ -9,4 +9,5 @@ include 'spring-app'
 include 'Hibernate'
 include 'hibernate_jpql'
 include 'spring-data-jdbc'
+include 'spring-app-rest'
 
