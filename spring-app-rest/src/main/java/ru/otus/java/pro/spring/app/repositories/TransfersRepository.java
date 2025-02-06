@@ -12,4 +12,5 @@ import java.util.UUID;
 public interface TransfersRepository extends JpaRepository<Transfer, UUID> {
     Optional<Transfer> findByIdAndClientId(UUID id, String clientId);
     List<Transfer> findAllByClientId(String clientId);
+    List<Transfer> findByClientIdOrTargetClientId(String clientId, String targetClientId);
 }
