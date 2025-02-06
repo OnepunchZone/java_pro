@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.otus.java.pro.spring.app.dtos.ExecuteTransferDtoRq;
 import ru.otus.java.pro.spring.app.entities.Transfer;
+import ru.otus.java.pro.spring.app.exceptions_handling.BusinessLogicException;
 import ru.otus.java.pro.spring.app.exceptions_handling.ValidationException;
 import ru.otus.java.pro.spring.app.exceptions_handling.ValidationFieldError;
 import ru.otus.java.pro.spring.app.repositories.TransfersRepository;
@@ -11,13 +12,15 @@ import ru.otus.java.pro.spring.app.repositories.TransfersRepository;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
 public class TransfersService {
     private final TransfersRepository transfersRepository;
+    private final PaymentService paymentService;
 
-    public Optional<Transfer> getTransferById(String id, String clientId) {
+    public Optional<Transfer> getTransferById(UUID id, String clientId) {
         return transfersRepository.findByIdAndClientId(id, clientId);
     }
 
@@ -25,9 +28,19 @@ public class TransfersService {
         return transfersRepository.findAllByClientId(clientId);
     }
 
-    public void execute(String clientId, ExecuteTransferDtoRq executeTransferDtoRq) {
-        validateExecuteTransferDtoRq(executeTransferDtoRq);
+    public void execute(String clientId, ExecuteTransferDtoRq request) {
+        validateExecuteTransferDtoRq(request);
 
+        if (!clientId.equals(request.targetClientId())) {
+            throw new BusinessLogicException("Клиент не может инициировать перевод от чужого имени");
+        }
+
+        paymentService.transfer(request.sourceAccount(), request.targetAccount(), request.amount());
+
+        Transfer transfer = new Transfer(null, clientId, request.targetClientId(),
+                request.sourceAccount(), request.targetAccount(),
+                request.message(), request.amount());
+        transfersRepository.save(transfer);
     }
 
     private void validateExecuteTransferDtoRq(ExecuteTransferDtoRq executeTransferDtoRq) {

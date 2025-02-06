@@ -9,6 +9,7 @@ import ru.otus.java.pro.spring.app.entities.Transfer;
 import ru.otus.java.pro.spring.app.exceptions_handling.ResourceNotFoundException;
 import ru.otus.java.pro.spring.app.services.TransfersService;
 
+import java.util.UUID;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -31,7 +32,7 @@ public class TransfersController {
     }
 
     @GetMapping("/{id}")
-    public TransferDto getTransferById(@RequestHeader(name = "client-id") String clientId, @PathVariable String id) {
+    public TransferDto getTransferById(@RequestHeader(name = "client-id") String clientId, @PathVariable UUID id) {
         return ENTITY_TO_DTO.apply(transfersService.getTransferById(id, clientId).orElseThrow(() -> new ResourceNotFoundException("Перевод не найден")));
     }
 
