@@ -1,14 +1,12 @@
 package ru.otus.java.pro.spring.app.exceptions_handling;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ResponseStatus;
+
+@ResponseStatus(HttpStatus.BAD_REQUEST)
 public class BusinessLogicException extends RuntimeException {
-    private String code;
 
-    public String getCode() {
-        return code;
-    }
-
-    public BusinessLogicException(String message, String code) {
+    public BusinessLogicException(String message) {
         super(message);
-        this.code = code;
     }
 }

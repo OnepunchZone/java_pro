@@ -4,6 +4,9 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.UuidGenerator;
+
+import java.util.UUID;
 
 @Entity
 @Table(name = "transfers")
@@ -12,8 +15,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class Transfer {
     @Id
+    @GeneratedValue
+    @UuidGenerator
     @Column(name = "id")
-    private String id;
+    private UUID id;
 
     @Column(name = "client_id")
     private String clientId;
@@ -32,4 +37,7 @@ public class Transfer {
 
     @Column(name = "amount")
     private int amount;
+
+    public Transfer(Long id, Long id1, int amount) {
+    }
 }
