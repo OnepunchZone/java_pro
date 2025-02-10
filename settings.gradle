@@ -10,4 +10,5 @@ include 'Hibernate'
 include 'hibernate_jpql'
 include 'spring-data-jdbc'
 include 'spring-app-rest'
+include 'serialization-and-deserialization'
 
